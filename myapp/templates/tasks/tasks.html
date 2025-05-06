@@ -17,10 +17,16 @@
  
   <p>{{task.description}}</p>
   <p>Project: {{task.project.name}}</p>
-  <button>Delete</button>
-  <button>✅ Done</button>
-
+  <form method="POST" action="{% url 'delete_task' task.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+  <form method="POST" action="{% url 'update_status' task.id %}">
+    {% csrf_token %}
+    <button type="submit">✅ Done</button>
+  </form>
 </div>
 {% endfor %}
+
 
 {% endblock %}
