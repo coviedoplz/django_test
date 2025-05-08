@@ -3,6 +3,7 @@
 {% block content %}
 <h1>Create a new task</h1>
 
+{{message}}
 <form method="POST">
   {% csrf_token %}
   {{form.as_p}}
